@@ -16,3 +16,10 @@ const Modal = ({ isOpen, onClose, children }) => {
     </div>
   );
 };
+const LinkArea = () => {
+  const { Canvas } = useQRCode();
+  const [longUrl, setLongUrl] = useState('');
+  const [shortUrls, setShortUrls] = useState([]);
+  const [error, setError] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [qrText, setQrText] = useState('');
