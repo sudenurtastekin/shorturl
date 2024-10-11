@@ -80,3 +80,16 @@ const LinkArea = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  return (
+    <div className="linkArea">
+      <form id="link-form" onSubmit={handleSubmit}>
+        <input
+          id="link-input"
+          placeholder="Shorten a link here..."
+          value={longUrl}
+          onChange={(e) => setLongUrl(e.target.value)}
+          required
+        />
+        <button type="submit">Shorten It!</button>
+      </form>
