@@ -93,3 +93,29 @@ const LinkArea = () => {
         />
         <button type="submit">Shorten It!</button>
       </form>
+      <div id="shortened-links">
+        {shortUrls.map((url, index) => (
+          <div key={index} className="shortened-link">
+            <p className='longurl'>{url.longUrl}</p>
+            <a id="shortened-url" href={`/${url.shortUrl}`} target="_blank" rel="noopener noreferrer">
+              {`${window.location.origin}/${url.shortUrl}`}
+            </a>
+            <div onClick={() => openModal(`${window.location.origin}/${url.shortUrl}`)}>
+              <Canvas
+                text={`${window.location.origin}/${url.shortUrl}`} 
+                options={{
+                  errorCorrectionLevel: 'M',
+                  margin: 3,
+                  scale: 4,
+                  width: 100,
+                  color: {
+                    dark: '#000',
+                    light: '#fff',
+                  },
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
