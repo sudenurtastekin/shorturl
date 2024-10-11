@@ -21,3 +21,11 @@ const Footer = () => {
             <a href="#">Developers</a>
             <a href="#">Support</a>
           </div>
+          <div className="company">
+            <h3>Company</h3>
+            <a href="#">About</a>
+            <a href="#">Our Team</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
