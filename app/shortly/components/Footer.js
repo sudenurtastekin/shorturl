@@ -29,3 +29,23 @@ const Footer = () => {
             <a href="#">Contact</a>
           </div>
         </div>
+        <div className="socialMedias">
+          <a href="/">
+            <FacebookIcon />
+          </a>
+          <a href="/">
+            <TwitterIcon />
+          </a>
+          <a href="/">
+            <PinterestIcon />
+          </a>
+          <a href="/">
+            <InstagramIcon />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
