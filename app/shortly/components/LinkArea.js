@@ -23,3 +23,7 @@ const LinkArea = () => {
   const [error, setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [qrText, setQrText] = useState('');
+  useEffect(() => {
+    const storedUrls = JSON.parse(localStorage.getItem('shortUrls')) || [];
+    setShortUrls(storedUrls);
+  }, []);
