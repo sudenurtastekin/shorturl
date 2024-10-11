@@ -43,8 +43,8 @@ const LinkArea = () => {
       const response = await fetch("https://szatjmdyotqigrrlrrsb.supabase.co/rest/v1/urls", {
         method: "POST",
         headers: {
-          "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6YXRqbWR5b3RxaWdycmxycnNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDI2NjUsImV4cCI6MjA0MzM3ODY2NX0.QcXRZ82w4MCZ_UlpAsZCxHLlAgoHh6YNz3FYC9d6MW8", 
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6YXRqbWR5b3RxaWdycmxycnNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDI2NjUsImV4cCI6MjA0MzM3ODY2NX0.QcXRZ82w4MCZ_UlpAsZCxHLlAgoHh6YNz3FYC9d6MW8", 
+          "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6YXRqbWR5b3RxaWdycmxycnNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDI2NjUsImV4cCI6MjA0MzM3ODY2NX0.QcXRZ82w4MCZ_UlpAsZCxHLlAgoHh6YNz3FYC9d6MW8",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6YXRqbWR5b3RxaWdycmxycnNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDI2NjUsImV4cCI6MjA0MzM3ODY2NX0.QcXRZ82w4MCZ_UlpAsZCxHLlAgoHh6YNz3FYC9d6MW8",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -59,7 +59,7 @@ const LinkArea = () => {
 
         localStorage.setItem('shortUrls', JSON.stringify(updatedShortUrls));
         setShortUrls(updatedShortUrls);
-        setLongUrl(''); 
+        setLongUrl('');
       } else {
         throw new Error('Short URL oluşturulamadı');
       }
@@ -102,7 +102,7 @@ const LinkArea = () => {
             </a>
             <div onClick={() => openModal(`${window.location.origin}/${url.shortUrl}`)}>
               <Canvas
-                text={`${window.location.origin}/${url.shortUrl}`} 
+                text={`${window.location.origin}/${url.shortUrl}`}
                 options={{
                   errorCorrectionLevel: 'M',
                   margin: 3,
@@ -118,4 +118,28 @@ const LinkArea = () => {
           </div>
         ))}
       </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      <Modal isOpen={modalOpen} onClose={closeModal}>
+        <h2>QR Code</h2>
+        <Canvas
+          text={qrText}
+          options={{
+            errorCorrectionLevel: 'M',
+            margin: 3,
+            scale: 4,
+            width: 200,
+            color: {
+              dark: '#000',
+              light: '#fff',
+            },
+          }}
+        />
+      </Modal>
+    </div>
+  );
+};
+
+export default LinkArea;
+
 
