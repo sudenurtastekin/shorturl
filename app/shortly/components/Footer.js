@@ -15,3 +15,9 @@ const Footer = () => {
             <a href="#">Branded Links</a>
             <a href="#">Analytics</a>
           </div>
+          <div className="resourcesFooter">
+            <h3>Resources</h3>
+            <a href="#">Blog</a>
+            <a href="#">Developers</a>
+            <a href="#">Support</a>
+          </div>
